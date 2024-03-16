@@ -8,13 +8,24 @@ import { ChatContext } from "../context/ChatContext";
 
 
 const ProfileView = () => {
-    const {GetPropertyById} = useContext(ChatContext)
+    const {GetPropertyById,GetUser} = useContext(ChatContext)
   const logo = "https://i.imgur.com/C9At9Sx.png";
   const [activeButton, setActiveButton] = React.useState(1);
+  let userData ;
 
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
+
+  React.useEffect(() => {
+    const temp = async()=>{
+      const t = await GetUser();
+      userData = t;
+    }
+    
+    
+  }, [])
+  
 
   return (
     <div className="max-w-[1440px] flex flex-col item-center">

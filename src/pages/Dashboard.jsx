@@ -15,6 +15,8 @@ import Map from "../components/Map";
 const Dashboard = () => {
   const {GetPropertyById,address,GetAllTransaction,allProp} = useContext(ChatContext)
   const [showReg,setShowReg] = React.useState(false)
+  const [searchCity,setSearchCity] = React.useState('Mumbai')
+  const [coordData,setCoordData] = React.useState('')
   const navigate = useNavigate()
 
 
@@ -39,12 +41,27 @@ const Dashboard = () => {
     }
   };
 
+  const GetCoords = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/returnid', {
+        city : searchCity
+      });
+  
+      console.log('Response from server:', response.data);
+      setCoordData(response.data);
+     
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
+  };
+
   useEffect(() => {
     const fetchPropertyData = async () => {
       try {
         
         await GetAllTransaction();
        await handleSubmit()
+       GetCoords()
        console.log('all prop',allProp)
       } catch (error) {
         console.log(error);
@@ -54,8 +71,13 @@ const Dashboard = () => {
     // Call the fetchPropertyData function when the address changes
     if (address) {
       fetchPropertyData();
+     
     }
   }, [address]);
+
+  useEffect(() => {
+    GetCoords()
+  }, [searchCity]);
 
   return (
     <div className="max-w-[1440px] flex flex-col item-center">
@@ -88,15 +110,15 @@ const Dashboard = () => {
           <div className="max-w-[990px] gap-4 flex flex-wrap">
           {Object.entries(allProp).map(([key, value]) => (
     // Process the key and value here
-    <Card onClick={()=>{
+    <Card  onClick={()=>{
       navigate('/property')
-    }} key={value.id} data={value} n={key} />
+    }} key={value} data={value} n={key} />
   ))}
            
           </div>
           <div className="w-[500px] h-auto overflow-hidden">
             {/* <img className="object-cover" src="https://cdn.discordapp.com/attachments/1198196635780522055/1213706229944160376/image.png?ex=65f67302&is=65e3fe02&hm=eeea4a98c030f34d39daa13370625d4fd763660f1c2af4cfab9a44c7f9977f65&" alt="" /> */}
-            <Map/>
+           {coordData != '' && <Map data={coordData} />}
           </div>
         </div>
       </div>

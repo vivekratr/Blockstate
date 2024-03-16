@@ -148,6 +148,21 @@ export const ChatProvider = ({ children }) => {
     }
   };
 
+  const GetUser = async () => {
+    try {
+      if (!ethereum) return alert("Please install metamask");
+      const contracts = await getEthereumContract();
+      // console.log("inside getuser,", contracts);
+      const tx = await contracts.getUser(currentAccount);
+
+      console.log("tx", tx);
+      // setAllProp(tx);
+      return tx;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const CreateProperty = async (
     _heading,
     _address,
@@ -221,6 +236,7 @@ export const ChatProvider = ({ children }) => {
         CreateProperty,
         GetAllTransaction,
         allProp,
+        GetUser,
       }}
     >
       {children}

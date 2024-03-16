@@ -1,36 +1,46 @@
-import React from 'react'
-import 'leaflet/dist/leaflet.css'
-import { MapContainer, TileLayer, useMap , Marker, Popup } from 'react-leaflet'
+import React from "react";
+import { useEffect } from "react";
+import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
-const Map = () => {
-  const position = [51.505, -0.09]
-  const data = {
-    "id": [1,2,3,4],
-    "address": ['1,2,3,4','assd','a','aa','v'],
-    "lat": 'x',
-    "long": 'y',
-    "city":['Mumbai','Delhi','Lucknow'],
-}
+const Map = (props) => {
+  const [datas, setDatas] = React.useState(null); // Declare datas as a state variable
+  
+  React.useEffect(() => {
+    setDatas(props.data); // Update datas with props.data
+  }, [props.data]); 
+  
+  
   return (
-    <div className='h-screen w-full overflow-hidden'>
-      <MapContainer className='' center={position} zoom={13} scrollWheelZoom={false}>
-    <TileLayer 
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    />
-    <Marker position={position}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-    <Marker position={[19.0928172,72.8569577]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-  </MapContainer>
-    </div>
-  )
+    <div className="h-screen w-full overflow-hidden">
+      <MapContainer
+        className=""
+        center={['19.0928172','72.8569577']}
+        zoom={13}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+       { datas  &&
+  datas['address'].map((d, index) => {
+    const temp =[datas['lat'][index], datas['long'][index]]
+    console.log('inside map tempest',temp); // Move the console.log statement here
+    return (
+      <Marker key={index} position={temp}>
+        <Popup>
+          {datas['address'][index]}
+        </Popup>
+      </Marker>
+    );
+  })
 }
 
-export default Map
+        
+      </MapContainer>
+    </div>
+  );
+};
+
+export default Map;
