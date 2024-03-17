@@ -16,10 +16,10 @@ const PropertyDetail = () => {
   const logo = "https://i.imgur.com/C9At9Sx.png";
   const pic1 = "https://i.imgur.com/Q2yxuqO.png";
   const pic2 = "https://i.imgur.com/Dvs1XvX";
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <div  className="max-w-[1440px] flex flex-col item-center">
+    <div className="max-w-[1440px] flex flex-col item-center">
       <div className="w-full relative flex justify-end py-1 ">
         <div className="absolute top-2 left-2">
           <img className="w-[114px]" src={logo} alt="" />
@@ -60,19 +60,29 @@ const PropertyDetail = () => {
               </div>
             </div>
             <div className="w-[32.938rem] relative text-[1.125rem] font-inter text-[#8a8a8a] text-left inline-block">{`Samtanagar, in Radhika , Sector 17 Vashi, Navi Mumbai, Maharashtra `}</div>
-            <div className="w-[156px] my-3 flex relative rounded bg-white h-[1.875rem] overflow-hidden text-left text-[0.875rem] text-black font-inter">
-              <div className="w-[6.938rem] relative text-[0.875rem] font-inter text-black text-left inline-block">
-                Take AR/VR Tour
+            <a href="https://pexels360.com/" target="_blank">
+              {" "}
+              <div className="w-[156px] my-3 flex items-center justify-center hover:scale-95 relative rounded bg-white h-[1.875rem] overflow-hidden text-left text-[0.875rem] text-black font-inter">
+                <div className="w-[6.938rem] relative text-[0.875rem] font-inter text-black text-left inline-block">
+                  Take AR/VR Tour
+                </div>
+                <img
+                  className="h-auto w-[16px]  object-contain  overflow-hidden "
+                  alt=""
+                  src="https://i.imgur.com/RoCdTui.png"
+                />
               </div>
-              <img
-                className="h-auto w-[16px]  object-contain  overflow-hidden "
-                alt=""
-                src="https://i.imgur.com/RoCdTui.png"
-              />
-            </div>
-            <div className="w-[152px] flex items-center justify-center relative rounded bg-[#0038ff] h-[2.313rem] overflow-hidden text-left text-[0.875rem] text-white font-inter">
+            </a>
+            <div className="flex">
+              <div className="w-[152px] flex items-center justify-center relative rounded bg-[#0038ff] h-[2.313rem] overflow-hidden text-left text-[0.875rem] text-white font-inter">
               <div className=" font-semibold">Buy Now</div>
             </div>
+
+            <div className=" relative bottom-10 left-[15rem] my-3 ml-10">
+              <img className="w-[10rem]" src="https://i.imgur.com/Ij4pRGJ.png" alt="" />
+            </div>
+            </div>
+            
           </div>
 
           <div className="w-[690px]  min-h-[260px] flex  p-2">
@@ -165,10 +175,15 @@ const PropertyDetail = () => {
                     <div className="w-full relative flex items-center justify-center rounded bg-[#00b25c] h-[1.875rem] overflow-hidden text-left text-[0.75rem] text-white font-inter">
                       <div className="">Chat with Owner</div>
                     </div>
-                    <a className="w-full" href="https://calendly.com/shreyashsingh865/30min" target=" _blank ">
-                    <div  className="w-full flex items-center justify-center relative rounded bg-[#00b25c] h-[1.875rem] overflow-hidden text-left text-[0.75rem] text-white font-inter">
-                      <div className="">Book a meeting</div>
-                    </div></a>
+                    <a
+                      className="w-full"
+                      href="https://calendly.com/shreyashsingh865/30min"
+                      target=" _blank "
+                    >
+                      <div className="w-full flex items-center justify-center relative rounded bg-[#00b25c] h-[1.875rem] overflow-hidden text-left text-[0.75rem] text-white font-inter">
+                        <div className="">Book a meeting</div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -177,17 +192,35 @@ const PropertyDetail = () => {
         </div>
 
         {/* description part */}
-        <div className="flex flex-col p-2 gap-4"> 
-        <div className="w-[8.813rem] relative text-[0.875rem] font-semibold font-inter text-black text-left inline-block">Property Description</div>
-        <div className="w-[86.563rem] relative text-[0.875rem] font-medium font-inter text-black text-left inline-block">A small deck in the back adds a touch of outdoor charm, offering a private retreat for relaxation or entertaining. Situated in a sought-after location, this 2-flat building close to amenities, schools, and transportation, it offers the perfect blend of comfort and accessibility. Whether you're an investor or a homeowner, this 2-flat building is a must-see A small deck in the back adds a touch of outdoor charm, offering a private retreat for relaxation or entertaining. Situated in a sought-after location, this 2-flat building close to amenities, schools, and transportation, it offers the perfect blend of comfort and accessibility. Whether you're an investor or a homeowner, this 2-flat building is a must-see</div>
-        <div className="w-[7.75rem] relative text-[0.875rem] font-semibold font-inter text-black text-left inline-block">Ownership Details</div>
-        <div className="w-full p-3 relative bg-[#EDEDED] h-[10.25rem] overflow-hidden" > 
-        {/* ownership detail */}
-        </div>
+        <div className="flex flex-col p-2 gap-4">
+          <div className="w-[8.813rem] relative text-[0.875rem] font-semibold font-inter text-black text-left inline-block">
+            Property Description
+          </div>
+          <div className="w-[86.563rem] relative text-[0.875rem] font-medium font-inter text-black text-left inline-block">
+            A small deck in the back adds a touch of outdoor charm, offering a
+            private retreat for relaxation or entertaining. Situated in a
+            sought-after location, this 2-flat building close to amenities,
+            schools, and transportation, it offers the perfect blend of comfort
+            and accessibility. Whether you're an investor or a homeowner, this
+            2-flat building is a must-see A small deck in the back adds a touch
+            of outdoor charm, offering a private retreat for relaxation or
+            entertaining. Situated in a sought-after location, this 2-flat
+            building close to amenities, schools, and transportation, it offers
+            the perfect blend of comfort and accessibility. Whether you're an
+            investor or a homeowner, this 2-flat building is a must-see
+          </div>
+          <div className="w-[7.75rem] relative text-[0.875rem] font-semibold font-inter text-black text-left inline-block">
+            Ownership Details
+          </div>
+          <div className="w-full p-3 relative bg-[#EDEDED] h-[10.25rem] overflow-hidden">
+            {/* ownership detail */}
+          </div>
 
-        {/* other properties */}
-        <div className="w-[13.813rem] relative text-[1rem] font-semibold font-inter text-black text-left inline-block">Similar Properties in Locality</div>
-        <div className="max-w-[990px] gap-4 flex flex-wrap">
+          {/* other properties */}
+          <div className="w-[13.813rem] relative text-[1rem] font-semibold font-inter text-black text-left inline-block">
+            Similar Properties in Locality
+          </div>
+          <div className="max-w-[990px] gap-4 flex flex-wrap">
             <Card />
             <Card />
             <Card />

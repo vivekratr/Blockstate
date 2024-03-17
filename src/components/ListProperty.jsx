@@ -17,7 +17,7 @@ const ListProperty = () => {
   const [cids, setCids] = useState("");
   const [spin, setSpin] = useState(false);
   const [links, setLinks] = useState();
-  const {  CreateProperty } = useContext(ChatContext);
+  const {  CreateProperty, currentAccount,setArr } = useContext(ChatContext);
 
   // Function to handle file input change for property images
   const handlePropertyImagesChange = (event) => {
@@ -31,7 +31,29 @@ const ListProperty = () => {
     setPropertyDocs(files);
   };
 
+  const listProps = async (a) => {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/putdata', {
+       'owner' : currentAccount,
+      'cost': expectedAmount,
+    'area': area,
+    'image':a,
+    'city':city,
+    'bhk':bhk,
+    'desc':description,
+    'address':propertyAddress
+      });
+  
+      console.log('Response from server:', response.data);
+      
+     
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
+  };
+
   const handleCreateProperties = async()=>{
+    
     console.log("calling", cids, propertyAddress,
     expectedAmount,
     area,
@@ -41,6 +63,21 @@ const ListProperty = () => {
     bhk,
     description);
     const a=await handleUpload()
+    listProps(a);
+
+    const newObj = {
+      owner: currentAccount,
+      cost: expectedAmount,
+      area: area,
+      image: a,
+      city: city,
+      bhk: bhk,
+      desc: description,
+      address: propertyAddress,
+      prop_id: 5,
+    };
+
+    setArr(prevArr => [...prevArr, newObj]);
     
     await CreateProperty(
       propertyName,

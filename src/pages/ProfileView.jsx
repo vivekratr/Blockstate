@@ -8,23 +8,28 @@ import { ChatContext } from "../context/ChatContext";
 
 
 const ProfileView = () => {
-    const {GetPropertyById,GetUser} = useContext(ChatContext)
+    const {GetPropertyById,GetUser,currentAccount,userDetail} = useContext(ChatContext)
   const logo = "https://i.imgur.com/C9At9Sx.png";
   const [activeButton, setActiveButton] = React.useState(1);
-  let userData ;
+  const [temp1, setTemp1] = React.useState('');
+  console.log("user data in profile view",temp1)
+ 
 
   const handleButtonClick = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
 
-  React.useEffect(() => {
-    const temp = async()=>{
-      const t = await GetUser();
-      userData = t;
-    }
+  // React.useEffect(() => {
+  //   const temp = async()=>{
+  //     const t = await GetUser();
+  //     setTemp1(t);
+  //     console.log("user data in profile view",temp1)
+  //   }
     
     
-  }, [])
+  // }, [currentAccount,temp1])
+  console.log("user data in profile view",userDetail)
+
   
 
   return (
@@ -40,6 +45,7 @@ const ProfileView = () => {
       <div  className="flex p-4 flex-col gap-3">
         <div onClick={async()=>{
           await  GetPropertyById(1);
+          await GetUser();
         }} className="w-[3.125rem] relative text-[1rem] font-semibold font-inter text-black text-left inline-block">
           Profile
         </div>

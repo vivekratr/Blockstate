@@ -13,7 +13,7 @@ const Card = (props) => {
       <div className="w-full ">
         <img
           className="w-[307px] h-[180px] object-contain"
-          src={`https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf_105762-2224.jpg?t=st=1709439725~exp=1709443325~hmac=91ddb3a19eff8e1a75766ee4402b98fa1b1500ad24112aa186e8cd64445cdf22&w=996`}
+          src={props.data?props.data[3]:''}
           alt=""
         />
       </div>
