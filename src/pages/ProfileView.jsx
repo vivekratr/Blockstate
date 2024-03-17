@@ -9,7 +9,7 @@ import { ChatContext } from "../context/ChatContext";
 
 const ProfileView = () => {
     const {GetPropertyById,GetUser,currentAccount,userDetail} = useContext(ChatContext)
-  const logo = "https://i.imgur.com/C9At9Sx.png";
+  const logo = "https://i.imgur.com/YKVYapo.jpg";
   const [activeButton, setActiveButton] = React.useState(1);
   const [temp1, setTemp1] = React.useState('');
   console.log("user data in profile view",temp1)
@@ -63,7 +63,7 @@ const ProfileView = () => {
             <div className="w-full relative h-[2.25rem] text-left text-[0.875rem] text-black font-inter">
               <div className="absolute top-[0rem] left-[4.75rem] rounded bg-whitesmoke w-[9.938rem] h-[2.25rem] overflow-hidden">
                 <div className="absolute top-[0.625rem] left-[0.875rem] inline-block w-[6.375rem]">
-                  Khan Investments
+                  Vivek Shah
                 </div>
               </div>
               <div className="absolute top-[0.625rem] left-[0rem] font-medium">
@@ -83,7 +83,7 @@ const ProfileView = () => {
             <div className="w-full relative h-[2.25rem] text-left text-[0.875rem] text-black font-inter">
               <div className="absolute top-[0rem] left-[4.75rem] rounded bg-whitesmoke w-[9.938rem] h-[2.25rem] overflow-hidden">
                 <div className="absolute top-[0.625rem] left-[0.875rem] inline-block w-[6.75rem]">
-                  ravi@gmail.com
+                  vivekshah64@gmail.com
                 </div>
               </div>
               <div className="absolute top-[0.625rem] left-[0rem] font-medium">{`Email `}</div>

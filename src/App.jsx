@@ -58,9 +58,9 @@ function App() {
       <ChatProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/main" element={<Mainpage />} />
+            <Route path="/" element={<Mainpage />} />
             <Route path="/reg" element={<RegisterPopup />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/home" element={<Dashboard />} />
             <Route path="/clone" element={<Clone />} />
             <Route path="/clone1" element={<Clone1 />} />
             <Route path="/property" element={<PropertyDetail />} />

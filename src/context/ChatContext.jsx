@@ -170,7 +170,7 @@ export const ChatProvider = ({ children }) => {
 
       const costInWei = ethers.utils.toWei(_newDoc.cost, "ether");
       console.log("inside store,", contracts);
-      const tx = await contracts.buyProperty(id, _newDoc, _time, _date, {
+      const tx = await contracts.buyProperty(1, '_newDoc', '_time', '_date', {
         value: costInWei,
       });
       await tx.wait();
@@ -320,7 +320,8 @@ export const ChatProvider = ({ children }) => {
         ConnectWallet,
         userDetail,
         arr,
-        setArr
+        setArr,
+        BuyProperty
       }}
     >
       {children}

@@ -4,8 +4,23 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
-  },
+  "theme": {
+    "extend": {
+    "colors": {
+    "navy": "#000b76"
+    },
+    "spacing": {},
+    "fontFamily": {
+    "montserrat": "Montserrat"
+    }
+    },
+    "fontSize": {
+    "inherit": "inherit"
+    }
+    },
+    "corePlugins": {
+    "preflight": false
+    }
+    ,
   plugins: [],
 }

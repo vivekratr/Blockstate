@@ -20,7 +20,7 @@ const WalletButton = () => {
           <img className="w-[114px]" src={logo} alt="" />
         </div>
 {/* <w3m-button class=" bg-blue-500 rounded-3xl"  balance='show' size='sm' label='Connect' loadingLabel='Connecting...' /> */}
-{currentAccount === '' ? (
+{currentAccount == '' ? (
               <div
                 onClick={handleConnectWallet}
                 className="relative rounded-lg hover:bg-violet-400 transition-transform transform hover:scale-75 bg-violet-500 box-border w-[9.875rem] h-[2.56rem] overflow-hidden text-left text-[1rem]  text-white font-inter border-t-[1px] border-solid border-mediumslateblue border-r-[1px] border-l-[1px]"

@@ -2,6 +2,8 @@ import React from "react";
 import WalletButton from "./WalletButton";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
+import { ChatContext } from "../context/ChatContext";
+
 
 import {
   CCarousel,
@@ -17,6 +19,15 @@ const PropertyDetail = () => {
   const pic1 = "https://i.imgur.com/Q2yxuqO.png";
   const pic2 = "https://i.imgur.com/Dvs1XvX";
   const navigate = useNavigate();
+  const {
+    GetPropertyById,
+    currentAccount,
+    GetAllTransaction,
+    allProp,
+    ConnectWallet,
+    arr,
+    BuyProperty
+  } = React.useContext(ChatContext);
 
   return (
     <div className="max-w-[1440px] flex flex-col item-center">
@@ -48,7 +59,7 @@ const PropertyDetail = () => {
           <div className="w-[690px] min-h-[260px] flex flex-col p-2 bg-[#efefef]">
             <div className="flex justify-between">
               <div className="w-[22.563rem] relative text-[1.438rem] font-medium font-inter text-black text-left inline-block">
-                Xaverian palace, 2bhk, Kandiwali
+                Xaverian palace, 2bhk, Kandivali
               </div>
               <div className="w-[5.625rem] relative text-[1.75rem] font-medium font-inter text-black text-left inline-block">
                 $8000
@@ -59,7 +70,7 @@ const PropertyDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[32.938rem] relative text-[1.125rem] font-inter text-[#8a8a8a] text-left inline-block">{`Samtanagar, in Radhika , Sector 17 Vashi, Navi Mumbai, Maharashtra `}</div>
+            <div className="w-[32.938rem] relative text-[1.125rem] font-inter text-[#8a8a8a] text-left inline-block">{`Samtanagar , Sector 17 Vashi, Navi Mumbai, Maharashtra `}</div>
             <a href="https://pexels360.com/" target="_blank">
               {" "}
               <div className="w-[156px] my-3 flex items-center justify-center hover:scale-95 relative rounded bg-white h-[1.875rem] overflow-hidden text-left text-[0.875rem] text-black font-inter">
@@ -74,7 +85,9 @@ const PropertyDetail = () => {
               </div>
             </a>
             <div className="flex">
-              <div className="w-[152px] flex items-center justify-center relative rounded bg-[#0038ff] h-[2.313rem] overflow-hidden text-left text-[0.875rem] text-white font-inter">
+              <div onClick={()=>{
+                BuyProperty(1,1,1,1)
+              }} className="w-[152px] flex items-center justify-center relative rounded bg-[#0038ff] h-[2.313rem] overflow-hidden text-left text-[0.875rem] text-white font-inter">
               <div className=" font-semibold">Buy Now</div>
             </div>
 

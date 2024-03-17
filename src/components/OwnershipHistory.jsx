@@ -6,7 +6,7 @@ const OwnershipHistory = () => {
       
 
       <div className="">
-       <img className='w-[648px] h-auto object-cover' src="https://i.imgur.com/l5Wr6I6.png" alt="" />
+       <img className='w-[648px] h-auto object-cover' src="https://i.imgur.com/7wSo3VD.jpeg" alt="" />
     </div>
   )
 }
