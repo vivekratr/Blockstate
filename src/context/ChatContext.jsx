@@ -168,10 +168,10 @@ export const ChatProvider = ({ children }) => {
       if (!ethereum) return alert("Please install metamask");
       const contracts = await getEthereumContract();
 
-      const costInWei = ethers.utils.toWei(_newDoc.cost, "ether");
+      // const costInWei = ethers.utils.toWei(_newDoc.cost, "ether");
       console.log("inside store,", contracts);
       const tx = await contracts.buyProperty(1, '_newDoc', '_time', '_date', {
-        value: costInWei,
+        value: 1000000,
       });
       await tx.wait();
 

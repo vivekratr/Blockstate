@@ -71,7 +71,7 @@ const PropertyDetail = () => {
               </div>
             </div>
             <div className="w-[32.938rem] relative text-[1.125rem] font-inter text-[#8a8a8a] text-left inline-block">{`Samtanagar , Sector 17 Vashi, Navi Mumbai, Maharashtra `}</div>
-            <a href="https://pexels360.com/" target="_blank">
+            <a href="https://my.matterport.com/show/?m=rrydMHCBQGb" target="_blank">
               {" "}
               <div className="w-[156px] my-3 flex items-center justify-center hover:scale-95 relative rounded bg-white h-[1.875rem] overflow-hidden text-left text-[0.875rem] text-black font-inter">
                 <div className="w-[6.938rem] relative text-[0.875rem] font-inter text-black text-left inline-block">

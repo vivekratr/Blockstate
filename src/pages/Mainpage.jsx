@@ -105,7 +105,7 @@ const Mainpage = () => {
                   }}
                   type="text"
                   placeholder="7182382823"
-                  className="relative pl-12  rounded-[5px] bg-gainsboro h-[3.313rem] overflow-hidden text-justify text-[1.625rem] text-darkgray font-montserrat"
+                  className="relative pl-12 placeholder:text-gray-400  rounded-[5px] bg-[#e2e2e2] h-[3.313rem] overflow-hidden text-justify text-[1.625rem] text-[black] font-montserrat"
                 />
                 <img
                   onClick={handleCall}
