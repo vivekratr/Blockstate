@@ -27,7 +27,7 @@ const Ledger = () => {
       formData.append("dex", textBoxes1);
 
       axios
-        .post("http://127.0.0.1:5000/checkuser", formData, {
+        .post("https://destate-kx3y.onrender.com/checkuser", formData, {
           // .post("http://127.0.0.1:5000/companyid", jsonData, {
           headers: {
             "Content-Type": "application/json",

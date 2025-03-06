@@ -33,7 +33,7 @@ const ListProperty = () => {
 
   const listProps = async (a) => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/putdata', {
+      const response = await axios.post('https://destate-kx3y.onrender.com/putdata', {
        'owner' : currentAccount,
       'cost': expectedAmount,
     'area': area,

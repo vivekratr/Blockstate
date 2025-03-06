@@ -128,7 +128,7 @@ const Profile = () => {
       formData.append("dex", walletAddress);
 
       axios
-        .post("http://127.0.0.1:5000/", formData, {
+        .post("https://destate-kx3y.onrender.com/", formData, {
           // .post("http://127.0.0.1:5000/companyid", jsonData, {
           headers: {
             "Content-Type": "application/json",
@@ -141,7 +141,7 @@ const Profile = () => {
           setDex(JSON.parse(temp.dex))
           console.log(cex,dex)
           axios
-        .post("http://127.0.0.1:5000/make", {'formData':1}, {
+        .post("https://destate-kx3y.onrender.com/make", {'formData':1}, {
           // .post("http://127.0.0.1:5000/companyid", jsonData, {
           headers: {
             "Content-Type": "application/json",

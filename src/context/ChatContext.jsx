@@ -58,7 +58,7 @@ export const ChatProvider = ({ children }) => {
   // };
 
   const [currentAccount, setCurrentAccount] = useState("");
-  const [messages, setMessages] = useState("0");
+  // const [messages, setMessages] = useState("0");
   const [isLoggedIn, setIsLoggedIn] = useState("0");
   const [userDetail, setUserDetail] = useState("");
   const [allProp, setAllProp] = useState({});

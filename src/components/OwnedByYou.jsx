@@ -17,7 +17,7 @@ const OwnedByYou = () => {
           <div className="w-full flex items-center justify-center relative rounded bg-[#d5d5d5] h-[1.875rem] overflow-hidden text-left text-[0.75rem] text-black font-inter">
             <div className="">List On Marletplace</div>
           </div>
-          <a className="w-full" href="https://cdn.discordapp.com/attachments/1192087027596935218/1218762660192059392/report.docx?ex=6608d82d&is=65f6632d&hm=f3f467de178b87ddd33947079ce206638ec6735eb4bc1803c8ad905423baa245&" target="_blank">
+          <a className="w-full" href="https://srv1112-files.hstgr.io/ee312071dc1a34b5/api/raw/public_html/assets/report%5B1%5D.pdf?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbl9HQiIsInZpZXdNb2RlIjoibGlzdCIsInNpbmdsZUNsaWNrIjpmYWxzZSwicGVybSI6eyJhZG1pbiI6ZmFsc2UsImV4ZWN1dGUiOmZhbHNlLCJjcmVhdGUiOnRydWUsInJlbmFtZSI6dHJ1ZSwibW9kaWZ5Ijp0cnVlLCJkZWxldGUiOnRydWUsInNoYXJlIjpmYWxzZSwiZG93bmxvYWQiOnRydWV9LCJjb21tYW5kcyI6W10sImxvY2tQYXNzd29yZCI6dHJ1ZSwiaGlkZURvdGZpbGVzIjpmYWxzZSwiZGF0ZUZvcm1hdCI6ZmFsc2V9LCJpc3MiOiJGaWxlIEJyb3dzZXIiLCJleHAiOjE3NDEyNjk5NjksImlhdCI6MTc0MTI2Mjc2OX0.3IXLxGMv4OkTexdnY9pgOvieS7srtM8gpEwL4ex-P-s&" target="_blank">
           <div  className="w-full flex items-center justify-end px-1 gap-1 relative rounded bg-[#d5d5d5] h-[1.875rem] overflow-hidden text-left text-[0.75rem] text-black font-inter">
             <div className="">
               Property Papers

@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:5000/login", {
+      const response = await axios.post("https://destate-kx3y.onrender.com/login", {
         wallet_address: currentAccount,
       });
       console.log("you just clicked submit");
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   const getDataPost = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:5000/getdata", {});
+      const response = await axios.post("https://destate-kx3y.onrender.com/getdata", {});
       console.log("you just clicked submit");
 
       console.log("Response from server getpostdata:", response.data);
@@ -61,7 +61,7 @@ const Dashboard = () => {
 
   const GetCoords = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:5000/returnid", {
+      const response = await axios.post("https://destate-kx3y.onrender.com/returnid", {
         city: searchCity,
       });
 

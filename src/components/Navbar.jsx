@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/makecall', {
+      const response = await axios.post('https://destate-kx3y.onrender.com/makecall', {
         number : bruno
       });
       console.log('you just clicked submit');

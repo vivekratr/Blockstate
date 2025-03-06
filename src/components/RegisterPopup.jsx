@@ -26,7 +26,7 @@ const RegisterPopup = (props) => {
   };
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/reg_user', {
+      const response = await axios.post('https://destate-kx3y.onrender.com/reg_user', {
         wallet_address : currentAccount
       });
       await CreateUser(name, email, phoneNumber);
