@@ -143,26 +143,20 @@ export const ChatProvider = ({ children }) => {
       console.log(error);
     }
   };
-
   const ConnectWallet = async () => {
     try {
-      if (!ethereum) return alert("Please install metamask");
+      if (!ethereum) {
+        alert("Please install MetaMask");
+        return;
+      }
       const accounts = await ethereum.request({
         method: "eth_requestAccounts",
       });
-
-      setCurrentAccount(accounts[0])
-      
-
-      // const contracts = getEthereumContract();
-      // console.log("Current account under connect wallet",currentAccount);
-      // const userData = await contracts.user_data(currentAccount);
-      // console.log("userData",userData);
+      setCurrentAccount(accounts[0]);
     } catch (error) {
-      console.log(error);
+      console.error("Error connecting to wallet:", error);
     }
   };
-
   const BuyProperty = async (id, _newDoc, _time, _date) => {
     try {
       if (!ethereum) return alert("Please install metamask");
@@ -284,27 +278,27 @@ export const ChatProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    const fetchPropertyData = async () => {
-      try {
-        // if (!isConnected) throw Error("User disconnected");
+  // useEffect(() => {
+  //   const fetchPropertyData = async () => {
+  //     try {
+  //       // if (!isConnected) throw Error("User disconnected");
 
-        // Call your function to fetch property data using the address
+  //       // Call your function to fetch property data using the address
 
-        // Update the propertyData state with the fetched data
-      await GetAllTransaction()
-      await GetUser()
-      console.log('allprope',allProp)
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  //       // Update the propertyData state with the fetched data
+  //     await GetAllTransaction()
+  //     await GetUser()
+  //     console.log('allprope',allProp)
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-    // Call the fetchPropertyData function when the address changes
-    if (currentAccount) {
-      fetchPropertyData();
-    }
-  }, []);
+  //   // Call the fetchPropertyData function when the address changes
+  //   if (currentAccount) {
+  //     fetchPropertyData();
+  //   }
+  // }, []);
 
   return (
     <ChatContext.Provider
@@ -317,6 +311,7 @@ export const ChatProvider = ({ children }) => {
         allProp,
         GetUser,
         checkIfWalletIsConnected,
+        setCurrentAccount,
         ConnectWallet,
         userDetail,
         arr,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import {
     CDropdown,
     CDropdownToggle,
@@ -19,11 +19,12 @@ const Navbar = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post('https://destate-kx3y.onrender.com/makecall', {
-        number : bruno
+        number: bruno,
       });
       console.log('you just clicked submit');
-  
       console.log('Response from server:', response.data);
+      // Close the popup after successful submission
+      setCall(false);
     } catch (error) {
       console.error('Error sending data:', error);
     }
@@ -103,30 +104,49 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div onClick={()=>{setCall((prev)=>{
+          <div
+            onClick={() => {
+              setCall((prev) => {
                 return !prev;
-            })}} className="w-[107px] cursor-pointer relative rounded [background:linear-gradient(-82.52deg,_#1983ff,_#5cffe7_38.4%,_#1cfa8f_62.4%,_#63f3ae)] h-[2.25rem] overflow-hidden text-left text-[0.75rem] text-black font-inter">
+              });
+            }}
+            className="w-[107px] cursor-pointer relative rounded [background:linear-gradient(-82.52deg,_#1983ff,_#5cffe7_38.4%,_#1cfa8f_62.4%,_#63f3ae)] h-[2.25rem] overflow-hidden text-left text-[0.75rem] text-black font-inter"
+          >
             <img
               className="absolute top-[0.563rem] left-[0.375rem] w-[1.125rem] h-[1.125rem] overflow-hidden"
               alt=""
               src={brokoIcon}
             />
-            <div  className="absolute top-[0.688rem] left-[1.75rem] font-medium">
+            <div className="absolute top-[0.688rem] left-[1.75rem] font-medium">
               Ask Broko.io
             </div>
           </div>
-            <div className={`absolute p-5 flex flex-col gap-4 bg-blue-300 rounded-xl z-20 w-[400px] ${call ? 'block' : 'hidden'} `}>
-            <label htmlFor="">Enter your Number:</label>
-            <input value={bruno} onChange={(e)=>{
-              
-              setBruno(e.target.value)
-            }} type="text" />
-
-            <button className='' onClick={handleSubmit}>Submit</button>
-            </div>
+          <div
+            className={`absolute p-5 flex flex-col gap-4 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 shadow-lg rounded-xl z-[9999] w-[400px] ${
+              call ? "block" : "hidden"
+            }`}
+          >
+            <label className="text-white font-semibold" htmlFor="">
+              Enter your Number:
+            </label>
+            <input
+              value={bruno}
+              onChange={(e) => {
+                setBruno(e.target.value);
+              }}
+              type="text"
+              className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <button
+              className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-all"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
-  )
-}
+  );
+};
 
 export default Navbar

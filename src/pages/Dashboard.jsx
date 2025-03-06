@@ -71,12 +71,13 @@ const Dashboard = () => {
       console.error("Error sending data:", error);
     }
   };
-
   useEffect(() => {
     const fetchPropertyData = async () => {
       try {
-        await GetAllTransaction();
-        await handleSubmit();
+        if (!currentAccount) {
+          console.log("No account connected");
+          return;
+        }
         GetCoords();
         console.log("all prop", allProp);
       } catch (error) {
@@ -84,12 +85,8 @@ const Dashboard = () => {
       }
     };
 
-    // Call the fetchPropertyData function when the address changes
-    if (currentAccount) {
-      fetchPropertyData();
-    }
+    fetchPropertyData(); // Ensure this is called when currentAccount changes
   }, [currentAccount]);
-
   useEffect(() => {
     GetCoords();
     getDataPost();

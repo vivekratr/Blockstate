@@ -26,7 +26,7 @@ const Map = (props) => {
        { datas  &&
   datas['address'].map((d, index) => {
     const temp =[datas['lat'][index], datas['long'][index]]
-    console.log('inside map tempest',temp); // Move the console.log statement here
+    // console.log('inside map tempest',temp); // Move the console.log statement here
     return (
       <Marker key={index} position={temp}>
         <Popup>
