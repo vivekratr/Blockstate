@@ -9,6 +9,7 @@ import RegisterPopup from "../components/RegisterPopup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Map from "../components/Map";
+import { ToastContainer, toast,cssTransition } from 'react-toastify';
 
 const Dashboard = () => {
   const {
@@ -71,6 +72,11 @@ const Dashboard = () => {
       console.error("Error sending data:", error);
     }
   };
+
+  const bounce = cssTransition({
+  enter: 'animate__animated animate__bounceIn',
+  exit: 'animate__animated animate__bounceOut',
+});
   useEffect(() => {
     const fetchPropertyData = async () => {
       try {
@@ -94,23 +100,34 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-[1440px] flex flex-col item-center">
+      {/* <ToastContainer  position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={true} // Allow closing on click
+rtl={false}
+draggable
+// pauseOnHover
+theme="light"
+        transition={bounce}
+      /> */}
       <div
         className={` top-[0%] left-0 w-full h-full z-10 backdrop-filter backdrop-blur-sm ${
           showReg ? "fixed" : "hidden"
         } `}
       >
         <div className="flex items-center justify-center h-full">
-          <RegisterPopup func={setShowReg} />
+          <RegisterPopup  func={setShowReg} />
         </div>
       </div>
       {/* <div className="w-full relative flex justify-end py-1 ">
         <div className="absolute top-2 left-2">
           <img className="w-[114px]" src={logo} alt="" />
         </div> */}
-      <WalletButton />
+      <WalletButton toast={toast}/>
       {/* </div> */}
 
-      <Navbar />
+      <Navbar toast={toast}/>
 
       {/* mid section */}
       <div className="flex flex-col ">

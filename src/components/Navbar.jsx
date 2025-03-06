@@ -8,7 +8,7 @@ import {
 import "@coreui/coreui/dist/css/coreui.min.css";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import { toast,cssTransition } from 'react-toastify';
 
 const Navbar = () => {
   const searchIcon = "https://i.imgur.com/RPM49ka.png";
@@ -16,15 +16,33 @@ const Navbar = () => {
   const [call,setCall] = useState(false)
   const navigate = useNavigate();
 
+
+const bounce = cssTransition({
+  enter: 'animate__animated animate__bounceIn',
+  exit: 'animate__animated animate__bounceOut',
+});
   const handleSubmit = async () => {
+
     try {
       const response = await axios.post('https://destate-kx3y.onrender.com/makecall', {
         number: bruno,
       });
+      setCall(false);
       console.log('you just clicked submit');
       console.log('Response from server:', response.data);
       // Close the popup after successful submission
-      setCall(false);
+     toast.success("Call Request Sent Successfully", {
+       position: "bottom-right",
+       autoClose: 2000, // Automatically close after 2 seconds
+       hideProgressBar: false,
+       closeOnClick: true, // Allow closing on click
+       pauseOnHover: false,
+       draggable: true,
+       progress: undefined,
+       theme: "light",
+       // transition: "Bounce",
+       transition: bounce,
+     });
     } catch (error) {
       console.error('Error sending data:', error);
     }

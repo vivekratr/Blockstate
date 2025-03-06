@@ -2,12 +2,31 @@
 import React from 'react';
 import { useContext } from "react";
 import { ChatContext } from "../context/ChatContext";
+import {  toast,cssTransition } from 'react-toastify';
+
 
 const WalletButton = () => {
+  const bounce = cssTransition({
+  enter: 'animate__animated animate__bounceIn',
+  exit: 'animate__animated animate__bounceOut',
+});
   const { currentAccount, ConnectWallet, setCurrentAccount } = useContext(ChatContext);
   const handleConnectWallet = async () => {
     try {
-      await ConnectWallet(); // Call the ConnectWallet function from ChatContext
+      await ConnectWallet();// Call the ConnectWallet function from ChatContext
+      toast.success("Wallet Connected Successfully", {
+        position: "bottom-right",
+        autoClose: 2000, // Automatically close after 2 seconds
+        hideProgressBar: false,
+        closeOnClick: true, // Allow closing on click
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: "Bounce",
+      transition: bounce,
+
+      });
     } catch (error) {
       console.error("Error connecting to wallet:", error);
     }
@@ -15,6 +34,17 @@ const WalletButton = () => {
   const handleLogout = () => {
     setCurrentAccount(""); // Clear the currentAccount state to log out
     console.log("User logged out");
+    toast.success("Wallet Disconnected", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: bounce,
+    });
   };
   const logo = "https://i.imgur.com/YKVYapo.jpeg";
   return (

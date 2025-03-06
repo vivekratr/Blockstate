@@ -16,6 +16,7 @@ import OwnershipHistory from "./components/OwnershipHistory";
 import ListProperty from "./components/ListProperty";
 import Ledger from "./components/Ledger";
 import AerialView from "./components/Map";
+import { ToastContainer ,cssTransition} from "react-toastify";
 
 function App() {
   // const projectId = "5e50e8c2bbc4377b7d110c299d64a2d3";
@@ -52,9 +53,23 @@ function App() {
   //   projectId,
   //   enableAnalytics: false, // Optional - defaults to your Cloud configuration
   // });
-
+const bounce = cssTransition({
+  enter: 'animate__animated animate__bounceIn',
+  exit: 'animate__animated animate__bounceOut',
+});
   return (
     <>
+        <ToastContainer  position="bottom-right"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={true} // Allow closing on click
+rtl={false}
+draggable
+// pauseOnHover
+theme="light"
+        transition={bounce}
+      />
       <ChatProvider>
         <BrowserRouter>
           <Routes>
